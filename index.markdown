@@ -6,7 +6,7 @@ layout: home
 permalink: /
 ---
  
- # Welcome
+ # Welcome  
  Hello hello
 
  ```csharp
@@ -44,11 +44,13 @@ permalink: /
     }
  ```
 
-{% for tag in site.tags %}
-  <h2>{{ tag[0] }}</h2>
-  <ul>
-    {% for post in tag[1] %}
-      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
-    {% endfor %}
-  </ul>
-{% endfor %}
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <a href="{{ post.url }}">
+        {{ post.title }}
+      </a>
+      - <time datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date_to_long_string }}</time>
+    </li>
+  {% endfor %}
+</ul>
